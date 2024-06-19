@@ -113,10 +113,14 @@ public class ServletAuto extends HttpServlet {
                 request.setAttribute("auto", a);
                 request.getRequestDispatcher("auto.jsp").forward(request, response);
             } catch (ServletException | IOException | NumberFormatException e) {
+                request.setAttribute("marka", marka);
                 request.setAttribute("msg", "Cena, godiste nisu dobrog formata");
                 request.getRequestDispatcher("unos.jsp").forward(request, response);
             }
         } else {
+            request.setAttribute("marka", marka);
+            request.setAttribute("cena", cenaStr);
+            request.setAttribute("godiste", godisteStr);
             request.setAttribute("msg", "Morate popuniti sva polja!");
             request.getRequestDispatcher("unos.jsp").forward(request, response);
         }

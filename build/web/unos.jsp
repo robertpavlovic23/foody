@@ -5,6 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    String marka = (String) request.getAttribute("marka");
+    String cena = (String) request.getAttribute("cena");
+    String godiste = (String) request.getAttribute("godiste");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,12 +23,32 @@
                 <tr>
                     <th height="25">
                     <td align="right" width="20%"> MARKA : </td>
+                    <%
+                        if (marka != null && marka.length() > 0) {
+                    %>
+                    <td><input type="text" name="marka" value="<%= marka%>"></td>
+                    <% 
+                        } else {
+                    %>
                     <td><input type="text" name="marka"></td>
+                    <% 
+                        }
+                    %>
                 </tr>
                 <tr>
                     <th height="25">
                     <td align="right" width="20%"> CENA : </td>
+                    <%
+                        if (cena != null && cena.length() > 0) {
+                    %>
+                    <td><input type="text" name="marka" value="<%= cena%>"></td>
+                    <% 
+                        } else {
+                    %>
                     <td><input type="text" name="cena"></td>
+                    <% 
+                        }
+                    %>
                 </tr>
                 <tr>
                     <th height="25">
